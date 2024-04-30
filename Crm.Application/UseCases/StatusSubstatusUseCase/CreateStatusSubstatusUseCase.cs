@@ -23,7 +23,8 @@ public class CreateStatusSubstatusUseCase
         var statusSubstatus = new StatusSubstatus
         {
             StatusId = request.StatusId,
-            SubstatusId = request.SubstatusId
+            SubstatusId = request.SubstatusId,
+            IsActivated = request.IsActivated
         };
 
         _statusSubstatusRepository.Create(statusSubstatus);
