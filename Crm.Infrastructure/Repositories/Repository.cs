@@ -25,4 +25,14 @@ public class Repository<T> : IRepository<T> where T : EBase
     {
         return _dbSet.Any(o => o.Name == name);
     }
+
+    public List<T> GetAll()
+    {
+        return _dbSet.ToList();
+    }
+
+    public bool GetById(int id)
+    {
+        return _dbSet.Any(o => o.Id == id);
+    }
 }

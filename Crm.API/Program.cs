@@ -1,3 +1,4 @@
+using Crm.Application.UseCases.StatusSubstatusUseCase;
 using Crm.Application.UseCases.StatusUseCases;
 using Crm.Application.UseCases.SubstatusUseCases;
 using Crm.Domain.Interfaces;
@@ -10,8 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<CreateStatusUseCase>();
 builder.Services.AddScoped<CreateSubtatusUseCase>();
+builder.Services.AddScoped<GetAllStatusSubstatusUseCase>();
+builder.Services.AddScoped<CreateStatusSubstatusUseCase>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<ISubstatusRepository, SubstatusRepository>();
+builder.Services.AddScoped<IStatusSubstatusRepository, StatusSubstatusRepository>();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true); 
 
