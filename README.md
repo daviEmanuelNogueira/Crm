@@ -1,7 +1,9 @@
 ![fiap](https://github.com/daviEmanuelNogueira/Crm/assets/104274261/1c28656a-8218-41ed-aeed-5aeae252becc)
 
 ## 🎖️ Tech Challenge:
-**Arquitetura de Sistemas .NET com Azure - Tech Challenge Fase 4: Microserviços e Serveless:**, desenvolver uma aplicação robusta seguindo os princípios da `Arquitetura Limpa` e enfatizando a qualidade do Software. Este desafio é projetado para simular um cenário de desenvolvimento real, em que a aplicação não só deve atender a requisitos funcionais específicos como garantir a manutenção, a testabilidade e a expansabilidade do código .
+**Arquitetura de Sistemas .NET com Azure - Tech Challenge Fase 4: Microserviços e Serveless:** <br>
+<br>
+Desenvolver uma aplicação robusta seguindo os princípios da `Arquitetura Limpa` e enfatizando a qualidade do Software. Este desafio é projetado para simular um cenário de desenvolvimento real, em que a aplicação não só deve atender a requisitos funcionais específicos como garantir a manutenção, a testabilidade e a expansabilidade do código .
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
