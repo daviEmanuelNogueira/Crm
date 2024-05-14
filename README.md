@@ -19,6 +19,10 @@ ________________________________________________________________________________
 - [Fillipe Luis da Silva](https://github.com/fillipelsilva) - RM352110;
 - [Pedro Henrique Sousa de Abreu](https://github.com/PedroAbreuHS) - RM352428.
 
+| [<img loading= "lazy" src = "https://github.com/daviEmanuelNogueira/Crm/assets/104274261/2b4eee74-cbab-4192-91ab-19b75e45bc87" width=115>](https://github.com/aleqsrosa) | [<img loading= "lazy" src = "https://github.com/daviEmanuelNogueira/Crm/assets/104274261/e556f2d4-5312-4670-a54a-046c7de3a42d" width=115>](https://github.com/daviEmanuelNogueira) | [<img loading= "lazy" src = "https://github.com/daviEmanuelNogueira/Crm/assets/104274261/1455c943-2f52-4fcf-999b-1f1614f5cf0a" width=115>](https://github.com/fillipelsilva) | [<img loading= "lazy" src = "https://github.com/daviEmanuelNogueira/Crm/assets/104274261/0c879524-949c-492d-bf16-ea613defa63e" width=115>](https://github.com/PedroAbreuHS)
+| :---: | :---: | :---: | :---: |
+| Alex Rosa - RM352258 | Davi Nogueira - RM351602 | Fillipe Silva - RM352110 | Pedro Abreu - RM352428 |
+| [![GitHub](https://img.shields.io/badge/-black?style=flat-square&logo=Github&link=https://github.com/danielecastroalves)](https://github.com/aleqsrosa) | [![GitHub](https://img.shields.io/badge/-black?style=flat-square&logo=Github&link=https://github.com/danielecastroalves)](https://github.com/daviEmanuelNogueira) | [![GitHub](https://img.shields.io/badge/-black?style=flat-square&logo=Github&link=https://github.com/danielecastroalves)](https://github.com/fillipelsilva) | [![GitHub](https://img.shields.io/badge/-black?style=flat-square&logo=Github&link=https://github.com/danielecastroalves)](https://github.com/PedroAbreuHS) |
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## ⚙️ Tecnologias:
