@@ -8,7 +8,8 @@ Desenvolver uma aplicação robusta seguindo os princípios da `Arquitetura Limp
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 📱 Descrição do Projeto:
-Descrever aqui o projeto.
+O tema do projeto é: CRM - Customer Relationship Management
+
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -42,7 +43,27 @@ ________________________________________________________________________________
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## ⚙️ Levantamento de Requisitos e Critérios de Aceite:
-...
+
+### Funcionalidade Esperada
+A parte funcional deve registrar o atendimento de uma chamada de call center, registrar o motivo da ligação (pré cadastrado), telefone do cliente, primeiro nome, observação (para inserir alguma informação relevante do atendimento), Status (pré cadastrado) e Substatus (pré cadastrado)
+
+`Motivo:`
+- Perda do cartão;
+- Desbloqueio do cartão;
+- Negociação;
+- Informação da conta.
+
+`Status:`
+- Finalizado: quando o motivo da ligação do cliente foi resolvido no primeiro contato;
+- Pendente: quando por algum motivo não pode ser resolvido no primeiro atendimento.
+
+`Substatus:`
+- Finalizado: Cartão desbloqueado com sucesso, Duvidas referente a conta;
+- Pendente: Cliente não conseguiu confirmar os dados, Negociação pendente de aceite.
+
+`Restrições tecnica:`
+- Não permitir o registro sem informar que os campos estejam preenchidos, com exeção da observação;
+- Todos os status devem conter um substatus.
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 🧪 Desenvolvimento (Build e Execução do Projeto):
