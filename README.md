@@ -8,8 +8,7 @@ Desenvolver uma aplicação robusta seguindo os princípios da `Arquitetura Limp
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 📱 Descrição do Projeto:
-O tema do projeto é: CRM - Customer Relationship Management
-
+O tema do projeto é: CRM - Customer Relationship Management para empresas de prestação de serviços de Call Center do ramo bancário. O objetivo é registrar as solicitações de clientes referentes a movimentos em contas e utilização de cartões.
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
@@ -28,13 +27,13 @@ ________________________________________________________________________________
 
 ## ⚙️ Tecnologias:
 * C#;
-* .NET;
-* ASP.NET;
+* .NET 7;
+* ASP.NET Core;
 * SQLSERVER;
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-## 🥋 Skills Desenvolvidas
+## 🥋 Skills Desenvolvidas:
 * Comunicação;
 * Trabalho em Equipe;
 * Networking;
@@ -45,7 +44,7 @@ ________________________________________________________________________________
 ## ⚙️ Levantamento de Requisitos e Critérios de Aceite:
 
 ### Funcionalidade Esperada
-A parte funcional deve registrar o atendimento de uma chamada de call center, registrar o motivo da ligação (pré cadastrado), telefone do cliente, primeiro nome, observação (para inserir alguma informação relevante do atendimento), Status (pré cadastrado) e Substatus (pré cadastrado)
+A parte funcional deve registrar o atendimento de uma chamada de call center, registrar o motivo da ligação (pré cadastrado), telefone do cliente, primeiro nome, observação (para inserir alguma informação relevante do atendimento), Status (pré cadastrado) e Substatus (pré cadastrado).
 
 `Motivo:`
 - Perda do cartão;
@@ -54,19 +53,44 @@ A parte funcional deve registrar o atendimento de uma chamada de call center, re
 - Informação da conta.
 
 `Status:`
-- Finalizado: quando o motivo da ligação do cliente foi resolvido no primeiro contato;
-- Pendente: quando por algum motivo não pode ser resolvido no primeiro atendimento.
+- **Finalizado:** quando o motivo da ligação do cliente foi resolvido no primeiro contato;
+- **Pendente:** quando por algum motivo não pode ser resolvido no primeiro atendimento.
 
 `Substatus:`
-- Finalizado: Cartão desbloqueado com sucesso, Duvidas referente a conta;
-- Pendente: Cliente não conseguiu confirmar os dados, Negociação pendente de aceite.
+- **Finalizado:** Cartão desbloqueado com sucesso, Duvidas referente a conta;
+- **Pendente:** Cliente não conseguiu confirmar os dados, Negociação pendente de aceite.
 
 `Restrições tecnica:`
-- Não permitir o registro sem informar que os campos estejam preenchidos, com exeção da observação;
+- Não permitir o registro quando não for preenchido todos os campos, com exeção da observação;
 - Todos os status devem conter um substatus.
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 ## 🧪 Desenvolvimento (Build e Execução do Projeto):
+
+### Arquitetura:
+A estrutura para o desenvolvimento foi baseada e implementada considerando os principios da Arquitetura Limpa e a divisão em camadas:
+- Domain;
+- Infrastructure;
+- Application;
+- API;
+- WEB;
+- Testes.
+
+### Persistência dos Dados:
+O banco de dados escolhido foi o SQL Server, por ser um banco relacional e garantir os princípios ACID.
+
+### Testes:
+O padrão utilizado é pensado nos testes unitários, testes de integração e regras de negócio.
+
+### Build e Execução do Projeto:
+Para executar esses projetos você precisa seguir as etapas abaixo:
+- Acessar o repositório do projeto através do link: https://github.com/daviEmanuelNogueira/Crm;
+- Baixar o zip do projeto ou fazer um fork do mesmo;
+- Abrir o projeto, preferencialmente, na IDE Visual Studio considerando que facilitará para a execução;
+- Configurar a api como startup project;
+- Rodar o comando update-database no package manage console apontando para o projeto de infraestrutura;
+- Clicar na opção, configurar startup projects, selecionar multiple startup projects e colocar o projeto Crm.WEB quanto o projeto Crm.API como start;
+- Após iniciar o navegador será iniciado a interação com o sistema, possibilitando o registro de um pré cadastro;
 
 __________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
