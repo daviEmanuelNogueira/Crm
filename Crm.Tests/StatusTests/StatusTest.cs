@@ -3,6 +3,7 @@ using Crm.Application.UseCases.StatusUseCases;
 using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
 using Moq;
+using Crm.Application.AutoMapper;
 
 namespace Crm.Tests.StatusTests;
 
@@ -24,9 +25,11 @@ public class StatusTest
     [Fact]
     public void Execute_ValidDto_CreatesStatus()
     {
+        var config = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperSetup>());
+
         // Arrange
         var mockRepository = new Mock<IStatusRepository>();
-        var useCase = new CreateStatusUseCase(mockRepository.Object);
+        var useCase = new CreateStatusUseCase(mockRepository.Object, config.CreateMapper());
         var dto = new StatusVM
         {
             Name = "New Status",
@@ -44,9 +47,11 @@ public class StatusTest
     [Fact]
     public void Execute_NullName_ThrowsArgumentException()
     {
+        var config = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperSetup>());
+
         // Arrange
         var mockRepository = new Mock<IStatusRepository>();
-        var useCase = new CreateStatusUseCase(mockRepository.Object);
+        var useCase = new CreateStatusUseCase(mockRepository.Object, config.CreateMapper());
 
         var dto = new StatusVM
         {

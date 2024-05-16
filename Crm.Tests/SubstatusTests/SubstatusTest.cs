@@ -3,6 +3,8 @@ using Crm.Application.UseCases.SubstatusUseCases;
 using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
 using Moq;
+using AutoMapper;
+using Crm.Application.AutoMapper;
 
 namespace Crm.Tests.SubstatusTests;
 public class SubstatusTest
@@ -23,9 +25,11 @@ public class SubstatusTest
     [Fact]
     public void Execute_ValidDto_CreatesStatus()
     {
+        var config = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperSetup>());
+
         // Arrange
         var mockRepository = new Mock<ISubstatusRepository>();
-        var useCase = new CreateSubtatusUseCase(mockRepository.Object);
+        var useCase = new CreateSubtatusUseCase(mockRepository.Object, config.CreateMapper());
         var dto = new SubstatusVM
         {
             Name = "New Status",
@@ -42,9 +46,11 @@ public class SubstatusTest
     [Fact]
     public void Execute_NullName_ThrowsArgumentException()
     {
+        var config = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperSetup>());
+
         // Arrange
         var mockRepository = new Mock<ISubstatusRepository>();
-        var useCase = new CreateSubtatusUseCase(mockRepository.Object);
+        var useCase = new CreateSubtatusUseCase(mockRepository.Object, config.CreateMapper());
 
         var dto = new SubstatusVM
         {
