@@ -1,26 +1,23 @@
 ﻿
-using Crm.Application.DTOs.SatusSubstatus;
+using AutoMapper;
+using Crm.Application.ViewModel;
+using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
 
 namespace Crm.Application.UseCases.StatusSubstatusUseCase;
 public class GetAllStatusSubstatusUseCase
 {
     private readonly IStatusSubstatusRepository _statusSubstatusRepository;
-    public GetAllStatusSubstatusUseCase(IStatusSubstatusRepository statusSubstatusRepository)
-        => _statusSubstatusRepository = statusSubstatusRepository;
-
-    public List<StatusSubstatusResponseDTO> Execute()
+    private readonly IMapper _mapper;
+    public GetAllStatusSubstatusUseCase(IStatusSubstatusRepository statusSubstatusRepository, IMapper mapper)
     {
-        var statusSubstatusList = _statusSubstatusRepository.GetAll();
+        _statusSubstatusRepository = statusSubstatusRepository;
+        _mapper = mapper;
+    }
 
-        var responseDTOList = statusSubstatusList.Select(statusSubstatus =>
-            new StatusSubstatusResponseDTO
-            {
-                Id = statusSubstatus.Id,
-                StatusName = statusSubstatus.Status.Name,
-                SubstatusName = statusSubstatus.Substatus.Name
-            }).ToList();
-
-        return responseDTOList;
+    public List<StatusSubstatusResponseVM> Execute()
+    {
+        return _mapper.Map<List<StatusSubstatusResponseVM>>(_statusSubstatusRepository.GetAll());
+      
     }
 }

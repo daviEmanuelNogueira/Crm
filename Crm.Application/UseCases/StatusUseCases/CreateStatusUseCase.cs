@@ -1,4 +1,5 @@
-﻿using Crm.Application.DTOs.Status;
+﻿using AutoMapper;
+using Crm.Application.ViewModel;
 using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
 
@@ -6,25 +7,21 @@ namespace Crm.Application.UseCases.StatusUseCases;
 public class CreateStatusUseCase
 {
     private readonly IStatusRepository _repository;
+    private readonly IMapper _mapper;
 
-    public CreateStatusUseCase(IStatusRepository repository)
-        => _repository = repository;
-
-    public void Execute(CreateStatusDTO dTO)
+    public CreateStatusUseCase(IStatusRepository repository, IMapper mapper)
     {
-        Validations(dTO);
-
-        var obj = new Status
-        {
-            Name = dTO.Name,
-            IsActivated = dTO.IsActivated,
-            IsFinisher = dTO.IsFinisher
-        };
-
-        _repository.Create(obj);
+        _repository = repository;
+        _mapper = mapper;
     }
 
-    private void Validations(CreateStatusDTO dTO)
+    public void Execute(StatusVM dTO)
+    {
+        Validations(dTO);
+        _repository.Create(_mapper.Map<Status>(dTO));
+    }
+
+    private void Validations(StatusVM dTO)
     {
         if (string.IsNullOrWhiteSpace(dTO.Name))
             throw new ArgumentException("Fill in the name field.");

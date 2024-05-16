@@ -1,4 +1,4 @@
-﻿using Crm.Application.DTOs.Substatus;
+﻿using Crm.Application.ViewModel;
 using Crm.Application.UseCases.SubstatusUseCases;
 using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
@@ -26,7 +26,7 @@ public class SubstatusTest
         // Arrange
         var mockRepository = new Mock<ISubstatusRepository>();
         var useCase = new CreateSubtatusUseCase(mockRepository.Object);
-        var dto = new CreateSubstatusDTO
+        var dto = new SubstatusVM
         {
             Name = "New Status",
             IsActivated = true
@@ -46,7 +46,7 @@ public class SubstatusTest
         var mockRepository = new Mock<ISubstatusRepository>();
         var useCase = new CreateSubtatusUseCase(mockRepository.Object);
 
-        var dto = new CreateSubstatusDTO
+        var dto = new SubstatusVM
         {
             IsActivated = true
         };

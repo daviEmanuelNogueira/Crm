@@ -1,5 +1,6 @@
-﻿namespace Crm.Application.DTOs.Status;
-public class CreateStatusDTO
+﻿namespace Crm.Application.ViewModel;
+
+public class StatusVM
 {
     public string Name { get; set; } = string.Empty;
     public bool IsActivated { get; set; }

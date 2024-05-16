@@ -1,5 +1,5 @@
-﻿using Crm.Application.DTOs.Status;
-using Crm.Application.UseCases.StatusUseCases;
+﻿using Crm.Application.UseCases.StatusUseCases;
+using Crm.Application.ViewModel;
 using Crm.Domain.Interfaces;
 using Crm.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +33,7 @@ public class StatusController : ControllerBase
 
     [HttpPost]
     [Route("create")]
-    public IActionResult Post([FromBody] CreateStatusDTO dTO, [FromServices] CreateStatusUseCase useCase)
+    public IActionResult Post([FromBody] StatusVM dTO, [FromServices] CreateStatusUseCase useCase)
     {
         try
         {

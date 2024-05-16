@@ -1,4 +1,4 @@
-﻿using Crm.Application.DTOs.Substatus;
+﻿using Crm.Application.ViewModel;
 using Crm.Application.UseCases.SubstatusUseCases;
 using Crm.Domain.Interfaces;
 using Crm.Infrastructure.Repositories;
@@ -33,7 +33,7 @@ public class SubstatusController : ControllerBase
 
     [HttpPost]
     [Route("create")]
-    public IActionResult Post([FromBody] CreateSubstatusDTO dTO, [FromServices] CreateSubtatusUseCase useCase)
+    public IActionResult Post([FromBody] SubstatusVM dTO, [FromServices] CreateSubtatusUseCase useCase)
     {
         try
         {

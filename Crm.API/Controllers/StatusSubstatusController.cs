@@ -26,7 +26,7 @@ public class StatusSubstatusController : ControllerBase
 
     [HttpPost]
     [Route("crate")]
-    public IActionResult Post([FromBody] CreateStatusSubstatusRequest request, [FromServices] CreateStatusSubstatusUseCase useCase)
+    public IActionResult Post([FromBody] CreateStatusSubstatusRequestVM request, [FromServices] CreateStatusSubstatusUseCase useCase)
     {
         try
         {

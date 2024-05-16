@@ -1,4 +1,4 @@
-using Crm.Application.DTOs.Status;
+using Crm.Application.ViewModel;
 using Crm.Application.UseCases.StatusUseCases;
 using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
@@ -27,7 +27,7 @@ public class StatusTest
         // Arrange
         var mockRepository = new Mock<IStatusRepository>();
         var useCase = new CreateStatusUseCase(mockRepository.Object);
-        var dto = new CreateStatusDTO
+        var dto = new StatusVM
         {
             Name = "New Status",
             IsActivated = true,
@@ -48,7 +48,7 @@ public class StatusTest
         var mockRepository = new Mock<IStatusRepository>();
         var useCase = new CreateStatusUseCase(mockRepository.Object);
 
-        var dto = new CreateStatusDTO
+        var dto = new StatusVM
         {
             IsActivated = true,
             IsFinisher = false

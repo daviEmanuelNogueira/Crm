@@ -1,3 +1,4 @@
+using Crm.Application.AutoMapper;
 using Crm.Application.UseCases.StatusSubstatusUseCase;
 using Crm.Application.UseCases.StatusUseCases;
 using Crm.Application.UseCases.SubstatusUseCases;
@@ -6,6 +7,8 @@ using Crm.Infrastructure.Data;
 using Crm.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
 
 // Add services to the container.
 builder.Services.AddDbContext<Context>();

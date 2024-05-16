@@ -1,5 +1,5 @@
-﻿namespace Crm.Application.DTOs.SatusSubstatus;
-public class StatusSubstatusResponseDTO
+﻿namespace Crm.Application.ViewModel;
+public class StatusSubstatusResponseVM
 {
     public int Id { get; set; }
     public string StatusName { get; set; } = string.Empty;

@@ -1,5 +1,5 @@
 ﻿namespace Crm.Application.Requests;
-public class CreateStatusSubstatusRequest
+public class CreateStatusSubstatusRequestVM
 {
     public int StatusId { get; set; }
     public int SubstatusId { get; set; }
