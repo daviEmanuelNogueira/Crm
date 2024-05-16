@@ -1,7 +1,6 @@
 ﻿
 using AutoMapper;
 using Crm.Application.ViewModel;
-using Crm.Domain.Entities;
 using Crm.Domain.Interfaces;
 
 namespace Crm.Application.UseCases.StatusSubstatusUseCase;

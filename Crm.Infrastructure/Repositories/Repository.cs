@@ -31,8 +31,8 @@ public class Repository<T> : IRepository<T> where T : EBase
         return _dbSet.ToList();
     }
 
-    public bool GetById(int id)
+    public T? GetById(int id)
     {
-        return _dbSet.Any(o => o.Id == id);
+        return _dbSet.FirstOrDefault(o => o.Id == id);
     }
 }

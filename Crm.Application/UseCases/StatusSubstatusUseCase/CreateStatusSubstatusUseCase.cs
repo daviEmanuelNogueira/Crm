@@ -22,17 +22,19 @@ public class CreateStatusSubstatusUseCase
 
     public void Execute(CreateStatusSubstatusRequestVM request)
     {
-        Validations(request);
-        _statusSubstatusRepository.Create(_mapper.Map<StatusSubstatus>(request));
+       Validations(request);
+       _statusSubstatusRepository.Create(_mapper.Map<StatusSubstatus>(request));
     }
 
     private void Validations(CreateStatusSubstatusRequestVM request)
     {
+        var status = _statusRepository.GetById(request.StatusId);
+        var substatus = _substatusRepository.GetById(request.SubstatusId);
 
-        if (!_statusRepository.GetById(request.StatusId))
+        if (status is null)
             throw new ArgumentException($"Status with ID {request.StatusId} not found.");
 
-        if (!_substatusRepository.GetById(request.SubstatusId))
+        if (substatus is null)
             throw new ArgumentException($"Substatus with ID {request.SubstatusId} not found.");
     }
 }

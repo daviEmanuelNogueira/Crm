@@ -1,6 +1,5 @@
 ﻿using Crm.Application.Requests;
 using Crm.Application.UseCases.StatusSubstatusUseCase;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crm.API.Controllers;

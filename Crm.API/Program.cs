@@ -5,6 +5,8 @@ using Crm.Application.UseCases.SubstatusUseCases;
 using Crm.Domain.Interfaces;
 using Crm.Infrastructure.Data;
 using Crm.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 

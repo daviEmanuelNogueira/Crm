@@ -3,10 +3,10 @@ public class StatusSubstatus
 {
     public int Id { get; set; }
     public int StatusId { get; set; }
-    public Status Status { get; set; } = new Status();
+    public virtual Status Status { get; set; }
 
     public int SubstatusId { get; set; }
-    public Substatus Substatus { get; set; } = new Substatus();
+    public virtual Substatus Substatus { get; set; }
     public bool IsActivated { get; set; }
 
 }

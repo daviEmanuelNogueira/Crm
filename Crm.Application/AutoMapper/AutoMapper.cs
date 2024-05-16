@@ -22,7 +22,7 @@ namespace Crm.Application.AutoMapper
             #endregion
 
             #region DomainToViewModel
-            CreateMap< StatusSubstatus, CreateStatusSubstatusRequestVM>();
+            CreateMap<StatusSubstatus, CreateStatusSubstatusRequestVM>();
             CreateMap<StatusSubstatus, StatusSubstatusResponseVM>();
             CreateMap<Status, StatusVM>();
             CreateMap<Substatus, SubstatusVM>();

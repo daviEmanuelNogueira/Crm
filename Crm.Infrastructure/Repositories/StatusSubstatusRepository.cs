@@ -12,6 +12,7 @@ public class StatusSubstatusRepository : IStatusSubstatusRepository
 
     public void Create(StatusSubstatus statusSubstatus)
     {
+
         _ctx.StatusSubstatus.Add(statusSubstatus);
         _ctx.SaveChanges();
     }
