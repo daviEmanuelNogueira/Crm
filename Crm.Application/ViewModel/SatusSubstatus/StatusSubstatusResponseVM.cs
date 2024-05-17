@@ -1,6 +1,4 @@
-﻿using Crm.Domain.Entities;
-
-namespace Crm.Application.ViewModel;
+﻿namespace Crm.Application.ViewModel;
 public class StatusSubstatusResponseVM
 {
     public int Id { get; set; }
