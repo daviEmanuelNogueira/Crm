@@ -20,6 +20,7 @@ namespace Crm.Application.AutoMapper
             CreateMap<StatusVM, Status>();
             CreateMap<MotivoVM, Motivo>();
             CreateMap<SubstatusVM,Substatus>();
+            CreateMap<AtendimentoVM,Atendimento>();
 
             #endregion
 

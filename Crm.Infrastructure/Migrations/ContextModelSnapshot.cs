@@ -48,19 +48,14 @@ namespace Crm.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubstatusId")
+                    b.Property<int>("StatusSubstatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MotivoId");
 
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("SubstatusId");
+                    b.HasIndex("StatusSubstatusId");
 
                     b.ToTable("Atendimentos");
                 });
@@ -162,23 +157,15 @@ namespace Crm.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Crm.Domain.Entities.Status", "Status")
+                    b.HasOne("Crm.Domain.Entities.StatusSubstatus", "StatusSubstatus")
                         .WithMany("Atendimentos")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Crm.Domain.Entities.Substatus", "Substatus")
-                        .WithMany("Atendimentos")
-                        .HasForeignKey("SubstatusId")
+                        .HasForeignKey("StatusSubstatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Motivo");
 
-                    b.Navigation("Status");
-
-                    b.Navigation("Substatus");
+                    b.Navigation("StatusSubstatus");
                 });
 
             modelBuilder.Entity("Crm.Domain.Entities.StatusSubstatus", b =>
@@ -207,15 +194,16 @@ namespace Crm.Infrastructure.Migrations
 
             modelBuilder.Entity("Crm.Domain.Entities.Status", b =>
                 {
-                    b.Navigation("Atendimentos");
-
                     b.Navigation("StatusSubstatuses");
+                });
+
+            modelBuilder.Entity("Crm.Domain.Entities.StatusSubstatus", b =>
+                {
+                    b.Navigation("Atendimentos");
                 });
 
             modelBuilder.Entity("Crm.Domain.Entities.Substatus", b =>
                 {
-                    b.Navigation("Atendimentos");
-
                     b.Navigation("StatusSubstatuses");
                 });
 #pragma warning restore 612, 618

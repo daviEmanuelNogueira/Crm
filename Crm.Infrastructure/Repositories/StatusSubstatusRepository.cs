@@ -21,4 +21,9 @@ public class StatusSubstatusRepository : IStatusSubstatusRepository
     {
         return _ctx.StatusSubstatus.Include(ss => ss.Status).Include(ss => ss.Substatus).ToList();
     }
+
+    public StatusSubstatus? GetById(int id)
+    {
+        return _ctx.StatusSubstatus.FirstOrDefault(s => s.Id == id);
+    }
 }

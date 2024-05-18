@@ -5,4 +5,5 @@ public interface IStatusSubstatusRepository
 {
     void Create(StatusSubstatus statusSubstatus);
     List<StatusSubstatus> GetAll();
+    StatusSubstatus? GetById(int id);
 }

@@ -1,4 +1,5 @@
 using Crm.Application.AutoMapper;
+using Crm.Application.UseCases.AtendimentoUseCase;
 using Crm.Application.UseCases.MotivoUseCase;
 using Crm.Application.UseCases.StatusSubstatusUseCase;
 using Crm.Application.UseCases.StatusUseCases;
@@ -18,12 +19,14 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<CreateStatusUseCase>();
 builder.Services.AddScoped<CreateSubtatusUseCase>();
 builder.Services.AddScoped<CreateMotivoUseCase>();
+builder.Services.AddScoped<CreateAtendimentoUseCase>();
 builder.Services.AddScoped<GetAllStatusSubstatusUseCase>();
 builder.Services.AddScoped<CreateStatusSubstatusUseCase>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<ISubstatusRepository, SubstatusRepository>();
 builder.Services.AddScoped<IStatusSubstatusRepository, StatusSubstatusRepository>();
 builder.Services.AddScoped<IMotivoRepository, MotivoRepository>();
+builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true); 
 
