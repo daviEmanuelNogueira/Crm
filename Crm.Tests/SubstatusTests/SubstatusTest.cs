@@ -7,7 +7,7 @@ using AutoMapper;
 using Crm.Application.AutoMapper;
 
 namespace Crm.Tests.SubstatusTests;
-public class SubstatusTest
+public class StatusSubstatusTest
 {
     [Fact]
     public void Status_CanBeInitialized()
@@ -23,7 +23,7 @@ public class SubstatusTest
     }
 
     [Fact]
-    public void Execute_ValidDto_CreatesStatus()
+    public void Execute_ValidDto_CreatesSubstatus()
     {
         var config = new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperSetup>());
 
@@ -32,7 +32,7 @@ public class SubstatusTest
         var useCase = new CreateSubtatusUseCase(mockRepository.Object, config.CreateMapper());
         var dto = new SubstatusVM
         {
-            Name = "New Status",
+            Name = "New Substatus",
             IsActivated = true
         };
 
