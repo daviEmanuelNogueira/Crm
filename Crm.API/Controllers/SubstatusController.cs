@@ -21,8 +21,7 @@ public class SubstatusController : ControllerBase
     {
         try
         {
-            var response = _repository.GetAll();
-            return Ok(new { response });
+            return Ok(_repository.GetAll());
         }
         catch (Exception ex)
         {

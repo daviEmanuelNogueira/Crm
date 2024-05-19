@@ -1,5 +1,6 @@
 ﻿using Crm.Application.Requests;
 using Crm.Application.UseCases.StatusSubstatusUseCase;
+using Crm.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crm.API.Controllers;
@@ -14,8 +15,7 @@ public class StatusSubstatusController : ControllerBase
     {
         try
         {
-            var response = useCase.Execute();
-            return Ok(new { response });
+            return Ok(useCase.Execute());
         }
         catch (Exception ex)
         {

@@ -1,53 +1,16 @@
-using Crm.Application.AutoMapper;
-using Crm.Application.UseCases.AtendimentoUseCase;
-using Crm.Application.UseCases.MotivoUseCase;
-using Crm.Application.UseCases.StatusSubstatusUseCase;
-using Crm.Application.UseCases.StatusUseCases;
-using Crm.Application.UseCases.SubstatusUseCases;
-using Crm.Domain.Interfaces;
-using Crm.Infrastructure.Data;
-using Crm.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using Crm.API;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
-
-// Add services to the container.
-builder.Services.AddDbContext<Context>();
-builder.Services.AddScoped<CreateStatusUseCase>();
-builder.Services.AddScoped<CreateSubtatusUseCase>();
-builder.Services.AddScoped<CreateMotivoUseCase>();
-builder.Services.AddScoped<CreateAtendimentoUseCase>();
-builder.Services.AddScoped<GetAllStatusSubstatusUseCase>();
-builder.Services.AddScoped<CreateStatusSubstatusUseCase>();
-builder.Services.AddScoped<IStatusRepository, StatusRepository>();
-builder.Services.AddScoped<ISubstatusRepository, SubstatusRepository>();
-builder.Services.AddScoped<IStatusSubstatusRepository, StatusSubstatusRepository>();
-builder.Services.AddScoped<IMotivoRepository, MotivoRepository>();
-builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
-
-builder.Services.AddRouting(options => options.LowercaseUrls = true); 
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
