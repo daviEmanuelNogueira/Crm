@@ -14,7 +14,7 @@ public class Context : DbContext
         optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=crm_tc4_db;Integrated Security=True;TrustServerCertificate=True;");
     }
 
-    public Context(DbContextOptions<Context> options) : base(options)
-    {
-    }
+    //public Context(DbContextOptions<Context> options) : base(options)
+    //{
+    //}
 }

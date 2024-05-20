@@ -39,8 +39,52 @@ namespace Crm.WEB.Pages
 
         public async Task<JsonResult> OnGetSubstatusesAsync(int statusId)
         {
-            SubstatusList = await _client.GetFromJsonAsync<List<Substatus>>($"https://localhost:7030/api/status/{statusId}/substatuses");
+            var statusSubstatuses = await _client.GetFromJsonAsync<List<StatusSubstatus>>($"https://localhost:7030/api/statussubstatus/getbystatus/{statusId}");
+
+            // Extrair os substatus e alimentar a SubstatusList
+            SubstatusList = statusSubstatuses.Select(ss => new Substatus
+            {
+                Id = ss.Substatus.Id,
+                Name = ss.Substatus.Name
+            }).ToList();
+
             return new JsonResult(SubstatusList);
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            int statusSubstatusId = await GetStatusSubstatusId(SelectedStatusId, SelectedSubstatusId);
+
+            // Create the Atendimento object
+            var atendimento = new Atendimento
+            {
+                Name = Atendimento.Name,
+                Phone = Atendimento.Phone,
+                Observations = Atendimento.Observations,
+                StatusSubstatusId = statusSubstatusId,
+                MotivoId = Atendimento.MotivoId
+            };
+
+            // Send the POST request to the API
+            var response = await _client.PostAsJsonAsync("https://localhost:7030/api/atendimento", atendimento);
+
+
+
+            return RedirectToPage();
+
+        }
+
+        private async Task<int> GetStatusSubstatusId(int statusId, int substatusId)
+        {
+            var response = await _client.GetAsync($"https://localhost:7030/api/statussubstatus/getstatussubstatusid/{statusId}/{substatusId}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception($"Failed to retrieve StatusSubstatusId for StatusId: {statusId} and SubstatusId: {substatusId}");
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            return int.Parse(content);
         }
     }
 }

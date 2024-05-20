@@ -9,6 +9,13 @@ namespace Crm.API.Controllers;
 [ApiController]
 public class StatusSubstatusController : ControllerBase
 {
+    private readonly IStatusSubstatusRepository _statusSubstatusRepository;
+
+    public StatusSubstatusController(IStatusSubstatusRepository statusSubstatusRepository)
+    {
+        _statusSubstatusRepository = statusSubstatusRepository;
+    }
+
     [HttpGet]
     [Route("getall")]
     public IActionResult Get([FromServices] GetAllStatusSubstatusUseCase useCase)
@@ -16,6 +23,34 @@ public class StatusSubstatusController : ControllerBase
         try
         {
             return Ok(useCase.Execute());
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An error has occurred: {ex.Message}");
+        }
+    }
+
+    [HttpGet]
+    [Route("getbystatus/{statusId}")]
+    public IActionResult Getbystatus(int statusId)
+    {
+        try
+        {
+            return Ok(_statusSubstatusRepository.ObterSubstatusComStatusId(statusId));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An error has occurred: {ex.Message}");
+        }
+    }
+
+    [HttpGet]
+    [Route("getstatussubstatusid/{statusId}/{substatusId}")]
+    public IActionResult ObeterId(int statusId, int substatusId)
+    {
+        try
+        {
+            return Ok(_statusSubstatusRepository.ObterId(statusId, substatusId));
         }
         catch (Exception ex)
         {

@@ -25,8 +25,7 @@ namespace Crm.API
         {
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
-            services.AddDbContext<Context>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<Context>();
 
             services.AddScoped<CreateStatusUseCase>();
             services.AddScoped<CreateSubtatusUseCase>();

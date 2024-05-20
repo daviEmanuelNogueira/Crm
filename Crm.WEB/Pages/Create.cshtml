@@ -8,6 +8,16 @@
 
 <form method="post">
     <div class="form-group">
+        <label>Motivo</label>
+        <select asp-for="Atendimento.MotivoId" class="form-control">
+            <option value="">Selecione um Motivo</option>
+            @foreach (var motivo in Model.MotivoList)
+            {
+                <option value="@motivo.Id">@motivo.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
         <label>Status</label>
         <select asp-for="SelectedStatusId" class="form-control" onchange="statusChanged()">
             <option value="">Selecione um Status</option>
@@ -39,16 +49,6 @@
         <label>Observações</label>
         <textarea asp-for="Atendimento.Observations" class="form-control"></textarea>
     </div>
-    <div class="form-group">
-        <label>Motivo</label>
-        <select asp-for="Atendimento.MotivoId" class="form-control">
-            <option value="">Selecione um Motivo</option>
-            @foreach (var motivo in Model.MotivoList)
-            {
-                <option value="@motivo.Id">@motivo.Name</option>
-            }
-        </select>
-    </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 
@@ -65,6 +65,7 @@
                         var option = document.createElement('option');
                         option.value = substatus.id;
                         option.text = substatus.name;
+                        option.dataset.statusSubstatusId = substatus.statusSubstatusId; // Assumindo que este campo está na resposta
                         substatusSelect.appendChild(option);
                     });
                 });
